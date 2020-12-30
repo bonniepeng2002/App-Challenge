@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
   private ConstraintLayout parent;
   private Spinner continent;
   private String accContinent = null;
-  private String accGender = null;
+  private String accGender = "Other";
   private RadioGroup Gender;
 
   @Override
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     pickImage = findViewById(R.id.btnImage);
     agree = findViewById(R.id.cbAgree);
     Gender = findViewById(R.id.rgGender);
+    continent = findViewById(R.id.continent);
 
     // IMAGE PICKER
     pickImage.setOnClickListener(
@@ -75,13 +76,17 @@ public class MainActivity extends AppCompatActivity {
 
     // CONTINENT
 
-    continent.setOnItemClickListener(
-        new AdapterView.OnItemClickListener() {
-          @Override
-          public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+    continent.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
             accContinent = continent.getSelectedItem().toString();
-          }
-        });
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> adapterView) {
+
+        }
+    });
 
     // REGISTER
     register.setOnClickListener(
@@ -89,13 +94,15 @@ public class MainActivity extends AppCompatActivity {
           @Override
           public void onClick(View view) {
             if (agree.isChecked()) {
-              if (password.equals(password2)) {
-                if (name != null && email != null) {
+              if (password.getText().toString().equals(password2.getText().toString()) &&
+                      !password.getText().toString().equals("") &&
+                      !password2.getText().toString().equals("") ){
+                if (!name.getText().toString().equals("") && !email.getText().toString().equals("")) {
                   Account newAccount =
                       new Account(
-                          name.toString(),
-                          email.toString(),
-                          password.toString(),
+                          name.getText().toString(),
+                          email.getText().toString(),
+                          password.getText().toString(),
                           accGender,
                           accContinent);
                   Snackbar.make(
