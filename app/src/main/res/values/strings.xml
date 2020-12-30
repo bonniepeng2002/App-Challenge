@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Challenge</string>
+    <string name="avatar">Avatar</string>
+    <string name="pick_image">pick image</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="re_enter_password">Re-enter Password</string>
+    <string name="password">Password</string>
+    <string name="terms">This is our terms and conditions. You are probably not going to read this, so please just click I Agree and then we\'ll be on our merry way!</string>
+    <string name="agree">I Agree</string>
+    <string name="gender">Gender:</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="other">Other</string>
+    <string name="register">register</string>
+    <string name="continent">Continent:</string>
+    <array name="continents">
+        <item>North America</item>
+        <item>South America</item>
+        <item>Asia</item>
+        <item>Europe</item>
+        <item>Africa</item>
+    </array>
+</resources>
